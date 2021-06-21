@@ -31,7 +31,7 @@ class CrearUsuaripViewController: UIViewController {
             }else{
                 print("El usuario fue creado exitosamente")
                 Database.database().reference().child("usuarios").child(user!.user.uid).child("email").setValue(user!.user.email)
-                let alerta = UIAlertController(title: "Creacion de Usaurio", message: "Usuario: \(self.passwordTextFlied.text!) se creo correctamente. ", preferredStyle: .alert)
+                let alerta = UIAlertController(title: "Creacion de Usaurio", message: "Usuario: \(self.emailTextField.text!) se creo correctamente. ", preferredStyle: .alert)
                 let btnOK = UIAlertAction(title: "Aceptar", style: .default , handler: { (UIAlertAction) in self.performSegue(withIdentifier: "iniciousuariocreado", sender: nil)
                 })
                 alerta.addAction(btnOK)
