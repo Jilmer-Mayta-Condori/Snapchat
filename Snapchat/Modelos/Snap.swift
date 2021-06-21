@@ -8,9 +8,10 @@
 
 import Foundation
 class Snap {
-    var imagenURL = ""
+    var dataURL = ""
     var descrip = ""
     var from = ""
     var id = ""
-    var imagenID = ""
+    var dataID = ""
+    var TypeData = ""
 }

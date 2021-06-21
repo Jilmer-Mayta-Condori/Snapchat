@@ -241,11 +241,18 @@
                                 <action selector="cerrarSesionTapped:" destination="W9R-HM-JXN" id="bYG-Fd-tE7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="p0T-o1-cpA">
-                            <connections>
-                                <segue destination="VI6-gx-Ug5" kind="show" id="sYO-WQ-iqN"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="p0T-o1-cpA">
+                                <connections>
+                                    <segue destination="VI6-gx-Ug5" kind="show" id="sYO-WQ-iqN"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="play" id="pf8-7Q-Rm5">
+                                <connections>
+                                    <segue destination="eWz-bI-EAz" kind="show" id="AIS-4A-Yno"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tablaSnaps" destination="aCA-1W-7hf" id="UUn-Rc-1Ca"/>
@@ -283,30 +290,137 @@
                                     <constraint firstAttribute="height" constant="250" id="yWd-jo-Drh"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qm0-M2-gaP">
+                                <rect key="frame" x="67.5" y="476" width="279" height="60"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="   Reproducir Audio" image="play">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="ReproducirTapped:" destination="ydH-Ua-NbV" eventType="touchUpInside" id="QTG-ZN-HED"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 --&gt; 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulG-Vv-Lvf">
+                                <rect key="frame" x="49.5" y="563" width="315" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Izl-y7-htl" firstAttribute="top" secondItem="mZ3-GM-TO7" secondAttribute="bottom" constant="20" id="3MR-C3-sHA"/>
+                            <constraint firstItem="ulG-Vv-Lvf" firstAttribute="centerX" secondItem="zhC-h4-7jg" secondAttribute="centerX" id="3mW-3v-cqd"/>
                             <constraint firstItem="mZ3-GM-TO7" firstAttribute="top" secondItem="MrM-w1-wud" secondAttribute="bottom" constant="20" id="A1A-Ue-aFZ"/>
                             <constraint firstItem="MrM-w1-wud" firstAttribute="leading" secondItem="JjJ-Fs-Ifu" secondAttribute="leading" constant="20" id="AoN-1f-9Ah"/>
                             <constraint firstItem="mZ3-GM-TO7" firstAttribute="leading" secondItem="JjJ-Fs-Ifu" secondAttribute="leading" constant="20" id="Fh1-z5-Hqv"/>
                             <constraint firstItem="JjJ-Fs-Ifu" firstAttribute="trailing" secondItem="MrM-w1-wud" secondAttribute="trailing" constant="20" id="GR5-dA-Tmr"/>
+                            <constraint firstItem="ulG-Vv-Lvf" firstAttribute="top" secondItem="qm0-M2-gaP" secondAttribute="bottom" constant="27" id="IRC-Y0-c2u"/>
                             <constraint firstItem="Izl-y7-htl" firstAttribute="centerX" secondItem="zhC-h4-7jg" secondAttribute="centerX" id="Rte-fz-mfK"/>
                             <constraint firstItem="MrM-w1-wud" firstAttribute="centerX" secondItem="zhC-h4-7jg" secondAttribute="centerX" id="SJe-h8-0ce"/>
                             <constraint firstItem="JjJ-Fs-Ifu" firstAttribute="trailing" secondItem="mZ3-GM-TO7" secondAttribute="trailing" constant="20" id="dus-2F-WQh"/>
+                            <constraint firstItem="qm0-M2-gaP" firstAttribute="top" secondItem="Izl-y7-htl" secondAttribute="bottom" constant="20" id="e3Y-jq-KN5"/>
+                            <constraint firstItem="qm0-M2-gaP" firstAttribute="centerX" secondItem="zhC-h4-7jg" secondAttribute="centerX" id="k7u-jb-r61"/>
                             <constraint firstItem="MrM-w1-wud" firstAttribute="top" secondItem="JjJ-Fs-Ifu" secondAttribute="top" constant="30" id="xYi-o5-Zmf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JjJ-Fs-Ifu"/>
                     </view>
                     <navigationItem key="navigationItem" id="szt-Ww-kKJ"/>
                     <connections>
+                        <outlet property="ReproducirBoton" destination="qm0-M2-gaP" id="b3v-Tb-PHJ"/>
                         <outlet property="imageView" destination="Izl-y7-htl" id="TM2-27-8di"/>
                         <outlet property="lblMensaje" destination="MrM-w1-wud" id="7Je-A0-7bB"/>
+                        <outlet property="lblTimer" destination="ulG-Vv-Lvf" id="0Yb-Kp-Mm6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IvJ-Wx-Wpc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="814"/>
+            <point key="canvasLocation" x="2502.898550724638" y="866.51785714285711"/>
+        </scene>
+        <!--Enviar Grabacion-->
+        <scene sceneID="4Ec-tH-kfM">
+            <objects>
+                <viewController id="eWz-bI-EAz" customClass="AudioViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C1n-5i-DxB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfZ-XD-qsq">
+                                <rect key="frame" x="78.5" y="118" width="257" height="60"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="   Grabar Audio     " image="rec">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="GrabarTapped:" destination="eWz-bI-EAz" eventType="touchUpInside" id="iio-3h-RbG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-nP-KQ6">
+                                <rect key="frame" x="62" y="198" width="290" height="60"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="   Reproducir Audio  " image="play">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="ReproducirTapped:" destination="eWz-bI-EAz" eventType="touchUpInside" id="IXX-75-oQL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mensaje:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKw-gP-hgC">
+                                <rect key="frame" x="30" y="288" width="354" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escribe un mensaje" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vi6-lZ-Cw2">
+                                <rect key="frame" x="30" y="338" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g2-fS-T1G">
+                                <rect key="frame" x="147.5" y="392" width="119" height="42"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="AGREGAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AgregarTapped:" destination="eWz-bI-EAz" eventType="touchUpInside" id="eZ8-gm-y0v"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="coP-Zw-EBU" firstAttribute="trailing" secondItem="SKw-gP-hgC" secondAttribute="trailing" constant="30" id="6dJ-zY-6lG"/>
+                            <constraint firstItem="1g2-fS-T1G" firstAttribute="top" secondItem="Vi6-lZ-Cw2" secondAttribute="bottom" constant="20" id="8q4-6A-aFw"/>
+                            <constraint firstItem="ezc-nP-KQ6" firstAttribute="top" secondItem="hfZ-XD-qsq" secondAttribute="bottom" constant="20" id="Lvl-he-L7J"/>
+                            <constraint firstItem="1g2-fS-T1G" firstAttribute="centerX" secondItem="C1n-5i-DxB" secondAttribute="centerX" id="OEC-go-1Jw"/>
+                            <constraint firstItem="coP-Zw-EBU" firstAttribute="trailing" secondItem="Vi6-lZ-Cw2" secondAttribute="trailing" constant="30" id="SBO-le-Ee6"/>
+                            <constraint firstItem="SKw-gP-hgC" firstAttribute="centerX" secondItem="C1n-5i-DxB" secondAttribute="centerX" id="SvZ-4X-gmW"/>
+                            <constraint firstItem="hfZ-XD-qsq" firstAttribute="centerX" secondItem="C1n-5i-DxB" secondAttribute="centerX" id="cwC-dw-Bmm"/>
+                            <constraint firstItem="SKw-gP-hgC" firstAttribute="top" secondItem="ezc-nP-KQ6" secondAttribute="bottom" constant="30" id="dSU-4d-N6G"/>
+                            <constraint firstItem="Vi6-lZ-Cw2" firstAttribute="leading" secondItem="coP-Zw-EBU" secondAttribute="leading" constant="30" id="iQr-lN-NJ1"/>
+                            <constraint firstItem="ezc-nP-KQ6" firstAttribute="centerX" secondItem="C1n-5i-DxB" secondAttribute="centerX" id="itz-Ec-nIr"/>
+                            <constraint firstItem="Vi6-lZ-Cw2" firstAttribute="top" secondItem="SKw-gP-hgC" secondAttribute="bottom" constant="20" id="j8w-Lc-N1d"/>
+                            <constraint firstItem="SKw-gP-hgC" firstAttribute="leading" secondItem="coP-Zw-EBU" secondAttribute="leading" constant="30" id="oPa-XF-DLy"/>
+                            <constraint firstItem="Vi6-lZ-Cw2" firstAttribute="centerX" secondItem="C1n-5i-DxB" secondAttribute="centerX" id="r9D-Jy-Lgj"/>
+                            <constraint firstItem="hfZ-XD-qsq" firstAttribute="top" secondItem="coP-Zw-EBU" secondAttribute="top" constant="30" id="s9X-ld-gsC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="coP-Zw-EBU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enviar Grabacion" id="XnJ-Zj-2OH"/>
+                    <connections>
+                        <outlet property="agregarBoton" destination="1g2-fS-T1G" id="nGP-dj-ZhN"/>
+                        <outlet property="grabarAudioBoton" destination="hfZ-XD-qsq" id="Aci-bh-wQG"/>
+                        <outlet property="mensajeTextField" destination="Vi6-lZ-Cw2" id="hzl-0r-drh"/>
+                        <outlet property="reproducirAudioBoton" destination="ezc-nP-KQ6" id="cak-R5-NsG"/>
+                        <segue destination="RYk-xA-VIF" kind="show" identifier="mostrarElegirUsuarios" id="9fr-kJ-SMS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S7M-RW-Bpn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3251" y="867"/>
         </scene>
         <!--EnviarMensaje-->
         <scene sceneID="Hnf-fL-bg9">
@@ -438,8 +552,11 @@
     <resources>
         <image name="create" width="360" height="360"/>
         <image name="login" width="512" height="512"/>
+        <image name="play" width="60" height="60"/>
+        <image name="rec" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZrT-CS-cxi"/>
+        <segue reference="9fr-kJ-SMS"/>
     </inferredMetricsTieBreakers>
 </document>

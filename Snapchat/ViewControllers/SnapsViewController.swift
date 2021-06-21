@@ -21,11 +21,12 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         Database.database().reference().child("usuarios").child((Auth.auth().currentUser?.uid)!).child("snaps").observe(DataEventType.childAdded, with: { (snapshot) in
             let snap = Snap()
-            snap.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
+            snap.dataURL = (snapshot.value as! NSDictionary)["dataURL"] as! String
             snap.from = (snapshot.value as! NSDictionary)["from"] as! String
             snap.descrip = (snapshot.value as! NSDictionary)["description"] as! String
             snap.id = snapshot.key
-            snap.imagenID = (snapshot.value as! NSDictionary)["imagenID"] as! String
+            snap.dataID = (snapshot.value as! NSDictionary)["dataID"] as! String
+            snap.TypeData = (snapshot.value as! NSDictionary)["typeData"] as! String
             self.snaps.append(snap)
             self.tablaSnaps.reloadData()
         })
